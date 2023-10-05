@@ -46,3 +46,10 @@ img {
 h2 {
     color: #333;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Tambahkan gaya tambahan sesuai kebutuhan Anda */
