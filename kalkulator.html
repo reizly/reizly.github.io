@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator J avascript</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        font-weight: bold;
+        background-color: #D2E0FB;
+        font-size: 18px;
+    }
+    .container{
+        background-color: #F9F3CC;
+        height: 300px;
+        width: 350px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn, .reset{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 35px;
+        letter-spacing: 1px;
+        border: 1px solid #F9F3CC;
+        transition: .3s;
+        background-color: #D7E5CA;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+    .reset:hover{
+        background-color: #8EACCD;
+        color: #D7E5CA;
+    }
+    .btn:hover{
+        background-color: #8EACCD;
+        color: #D7E5CA;
+    }
+    input, select{
+        border: transparent;
+        font-size: 14px;
+
+    }
+
+</style>
+<body>
+<div class="container">    
+    <form id="kalkulator-form" class="kalkulator">
+        <label for="bilangan1" class="label1">Bilangan Pertama:</label>
+        <input type="number" id="bilangan1" required class="bil1" />
+        <br /><br>
+  
+        <label for="bilangan2" class="label2">Bilangan Kedua:</label>
+        <input type="number" id="bilangan2" required class="bil2" />
+        <br /><br>
+  
+        <label for="operator" class="label3">Operator:</label>
+        <select id="operator" required class="pil">
+            <option> </option>
+          <option value="+">Penjumlahan (+)</option>
+          <option value="-">Pengurangan (-)</option>
+          <option value="*">Perkalian (x)</option>
+          <option value="/">Pembagian (/)</option>
+        </select>
+        <br /><br>
+  
+        <input type="submit" value="Hitung" class="btn"/>
+        <input type="reset" value="Reset" class="reset" onclick="resethasil()" /><br><br>
+  
+        <p class="hasil">Hasil : <span id="hasil"></span></p>
+      </form>
+</div>
+      <script>
+        document
+          .getElementById("kalkulator-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault(); // Note: Bagian ini masih memakai bantuan AI, jadi masih belum terlalu mengerti
+  
+            const bilangan1 = parseFloat(
+              document.getElementById("bilangan1").value
+            );
+            const bilangan2 = parseFloat(
+              document.getElementById("bilangan2").value
+            );
+            const operator = document.getElementById("operator").value;
+  
+            //mengunakan switch case agar bisa melakukan perhitungan terhadap 2 bilangan tsb, biar simpel aja
+            let hasil = 0;
+            switch (operator) {
+              case "+":
+                hasil = bilangan1 + bilangan2;
+                break;
+              case "-":
+                hasil = bilangan1 - bilangan2;
+                break;
+              case "*":
+                hasil = bilangan1 * bilangan2;
+                break;
+              case "/":
+                hasil = bilangan1 / bilangan2;
+                break;
+              default:
+                alert("Operator tidak valid");
+            }
+  
+            // Menampilkan hasil dengan id "hasil"
+            document.getElementById("hasil").textContent = hasil;
+          });
+  
+        //mereset hasil
+        function resethasil() {
+          document.getElementById("hasil").innerHTML = "";
+        }
+      </script> 
+</body>
+</html>
