@@ -1,0 +1,22 @@
+.judul{
+    text-align: center;
+}
+.isi{
+    text-align: center;
+}
+.celcius{
+    margin-left: 35%;
+    margin-right: 50px;
+}
+.Fahrenheit{
+    margin-left: 35%;
+    margin-right: 50px;
+}
+.input{
+    margin-left: 35%;
+    margin-right: 50px;
+}
+.reset{
+    margin-left: 35%;
+    margin-right: 50px;
+}
